@@ -15,3 +15,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  min-height: calc(100vh - 280px);
+  margin-top: 80px;
+}
+
+.containerDiv {
+  width: clamp(200px, 90%, 1440px);
+}
+
+.navBarPadding {
+  padding-left: 16px;
+}
+
+.product {
+  /* background-color: #080f36; */
+  border-radius: 3px;
+  box-shadow: 4px 4px 5px rgba(63, 60, 60, 0.5);
+  overflow: hidden;
+  margin: 1rem;
+  width: 400px;
+  height: 430px;
+  position: relative;
+  cursor: pointer;
+}
+
+.product img {
+  object-fit: cover;
+  height: 350px;
+  max-width: 100%;
+  padding: 1em;
+}

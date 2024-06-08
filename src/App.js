@@ -1,8 +1,8 @@
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import Layout from "./layout";
 import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/AppRouter";
 
 
 
@@ -10,9 +10,7 @@ function App() {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter>
-          <Layout />
-        </BrowserRouter>
+        <AppRouter />
       </Provider>
     </div>
   );
