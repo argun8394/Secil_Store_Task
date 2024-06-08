@@ -10,6 +10,8 @@ import Category from "../category/Category";
 const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
     const [productsToShow, setProductsToShow] = useState(10);
+    const [selectedCategory, setSelectedCategory] = useState("");
+
 
     const dispatch = useDispatch();
     const { products, error, loading } = useSelector((state) => state.api);
@@ -17,12 +19,12 @@ const Products = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(getProducts());
+        dispatch(getProducts(selectedCategory));
 
         return () => {
             dispatch(clearProducts());
         };
-    }, []);
+    }, [selectedCategory]);
 
     useEffect(() => {
         setDisplayedProducts(products.slice(0, productsToShow));
@@ -47,11 +49,8 @@ const Products = () => {
 
                 {!loading && (
                     <div className="">
-                        {/* <div className="flex  w-full border-t bg-slate-600 text-white h-10">
+                        <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
-                            <Category />
-
-                        </div> */}
                         <div className="flex justify-center items-center flex-wrap ">
                             {displayedProducts.map((product) => (
                                 <ProductCard key={product.id} {...product} />

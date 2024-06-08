@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const Category = () => {
+const Category = ({ selectedCategory, setSelectedCategory }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState("");
 
     const list = [
         {
@@ -33,7 +32,7 @@ const Category = () => {
             <div className="relative flex flex-col items-start justify-start ">
                 <button
                     onClick={(e) => setIsOpen(!isOpen)}
-                    className="z-20 rounded-r-[4px] min-w-[150px] h-[40px] gap-[2px] px-[2px] min-[678px]:px-2 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
+                    className="z-20 rounded-md min-w-[156px] h-[40px] gap-[2px] px-2 flex items-center justify-between font-[400] text-[14px] tracking-wider border-4 border-transparent active:border-white duration-300 active:text-white "
                 >
                     <span className={`border border-slate-500 px-4 w-full h-[30px] capitalize`}>
                         {!isOpen && !selectedCategory ? "Categories" : ""}
@@ -41,7 +40,7 @@ const Category = () => {
                     </span>
                 </button>
                 {isOpen && (
-                    <div className="z-20 bg-[#00254F] opacity-100 absolute top-9 flex flex-col items-start p-2 w-[156px] rounded-[4px]">
+                    <div className="z-20 bg-[#00254F] opacity-100 absolute top-9 flex flex-col items-start p-2 w-[156px] rounded-b-md">
                         {list.map((item, i) => (
                             <div
                                 className="flex w-full justify-between hover:bg-[#0059BC] cursor-pointer p-1"
