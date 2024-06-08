@@ -8,29 +8,22 @@ import Category from "../category/Category";
 
 const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
-    const [productsToShow, setProductsToShow] = useState(30);
+    const [limit, setlimit] = useState(30);
     const [selectedCategory, setSelectedCategory] = useState("");
 
     const dispatch = useDispatch();
     const { products, error, loading } = useSelector((state) => state.api);
 
     useEffect(() => {
-        if (selectedCategory == 'all') {
-            dispatch(getProducts());
-        } else {
-            dispatch(getProducts(selectedCategory));
-        }
+        const category = selectedCategory === 'all' ? '' : selectedCategory;
+        dispatch(getProducts({ category, limit: limit }));
 
         dispatch(getProducts())
 
         return () => {
             dispatch(clearProducts());
         };
-    }, [selectedCategory]);
-
-    useEffect(() => {
-        setDisplayedProducts(products.slice(0, productsToShow));
-    }, [products, productsToShow]);
+    }, [selectedCategory, limit]);
 
     return (
         <div className="flex justify-center">
@@ -41,7 +34,7 @@ const Products = () => {
                     </div>
                 )}
 
-                {error && (
+                {(error && products.length < 0) && (
                     <div className="flex justify-center items-center ">
                         <h2 className="font-[700] text-[30px] text-red-700">
                             Products can not be fetched
@@ -57,7 +50,7 @@ const Products = () => {
                         />
 
                         <div className="flex justify-center items-center flex-wrap ">
-                            {displayedProducts.map((product) => (
+                            {products.map((product) => (
                                 <ProductCard key={product.id} {...product} />
                             ))}
                         </div>

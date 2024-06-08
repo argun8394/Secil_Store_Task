@@ -10,11 +10,13 @@ const initialState = {
 export const getProducts = createAsyncThunk(
     "getProductsFunc",
 
-    async (category) => {
+    async ({ category, limit }) => {
+
         const url = category ? `https://fakestoreapi.com/products/category/${category}` : `https://fakestoreapi.com/products`;
 
+        console.log(limit)
 
-        const { data } = await axios(url);
+        const { data } = await axios(url + `?limit=${limit}`);
         return data;
     }
 );

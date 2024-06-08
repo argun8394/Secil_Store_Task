@@ -10,7 +10,6 @@ const NavLink = ({ item }) => {
     let location = useLocation();
     let pathName = location.pathname
 
-    console.log(item)
 
     return (
         <Link
