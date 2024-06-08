@@ -6,6 +6,7 @@
 * Redux-toolkit
 * React-router
 * Axios
+* React-star-raitings
 * Tailwind
   
 
