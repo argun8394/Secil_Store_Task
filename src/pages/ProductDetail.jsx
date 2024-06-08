@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import StarRatings from "react-star-ratings";
+
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -39,7 +41,15 @@ const ProductDetail = () => {
 
                         <ul className="bg-gray-100 rounded-lg border border-gray-400 text-gray-900">
                             <li className="px-6 py-2 border-b border-gray-400 w-full">
-                                {"Rate : " + rating?.rate}
+                                <span>Rate: </span>
+                                <StarRatings
+                                    rating={rating?.rate || 0}
+                                    starRatedColor="gold"
+                                    numberOfStars={5}
+                                    name='rating'
+                                    starDimension="20px"
+                                    starSpacing="2px"
+                                />
                             </li>
                             <li className="px-6 py-2 border-b border-gray-400 w-full">
                                 {"Rate Count : " + rating?.count}
@@ -47,7 +57,7 @@ const ProductDetail = () => {
                             <li className="px-6 py-2 border-gray-400 w-full rounded-t-lg">
                                 <Link
                                     to={-1}
-                                    className="text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4"
+                                    className="font-[500] text-blue-600 hover:text-blue-700 transition duration-300 ease-in-out mb-4 underline "
                                 >
                                     Go Back
                                 </Link>
