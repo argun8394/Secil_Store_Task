@@ -29,7 +29,7 @@ const ProductDetail = () => {
                     <img
                         className=" lg:w-1/3  h-96 lg:h-[500px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"
                         src={image}
-                        alt="image"
+                        alt={title}
                     />
                     <div className="flex flex-col justify-between p-6 ">
                         <div>

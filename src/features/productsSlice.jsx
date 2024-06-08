@@ -16,7 +16,7 @@ export const getProducts = createAsyncThunk(
 
         console.log(limit)
 
-        const { data } = await axios(url + `?limit=${limit}`);
+        const { data } = await axios(`${url}?limit=${limit}`);
         return data;
     }
 );

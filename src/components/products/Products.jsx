@@ -2,12 +2,10 @@ import { clearProducts, getProducts } from "../../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import loadingGif from "../../assets/loading.gif";
-import { useNavigate } from "react-router-dom";
 import ProductCard from "../productCard/ProductCard";
 import Category from "../category/Category";
 
 const Products = () => {
-    const [displayedProducts, setDisplayedProducts] = useState([]);
     const [limit, setlimit] = useState(30);
     const [selectedCategory, setSelectedCategory] = useState("");
 

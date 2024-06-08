@@ -1,5 +1,6 @@
 import React from "react";
 import Links from "./links/Links";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
@@ -7,7 +8,10 @@ const Navbar = () => {
             <div className=" flex flex-col justify-around items-center bg-[#120a2e]  text-white h-[80px] mx-auto  w-full ">
                 <div className="navBarPadding containerDiv flex justify-between items-center w-full ">
                     <div>
-                        <h2 className="text-[28px] font-[600]">Seçil Store</h2>
+                        <Link
+                            to="/" >
+                            <h2 className="text-[28px] font-[600]">Seçil Store</h2>
+                        </Link>
                     </div>
                     <div className="hidden min-[560px]:block">
                         <input
