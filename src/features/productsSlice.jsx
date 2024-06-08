@@ -14,7 +14,6 @@ export const getProducts = createAsyncThunk(
 
         const url = category ? `https://fakestoreapi.com/products/category/${category}` : `https://fakestoreapi.com/products`;
 
-        console.log(limit)
 
         const { data } = await axios(`${url}?limit=${limit}`);
         return data;
