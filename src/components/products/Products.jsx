@@ -1,7 +1,6 @@
 import { clearProducts, getProducts } from "../../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import loadingGif from "../../assets/loading.gif";
 import { useNavigate } from "react-router-dom";
 import ProductCard from "../productCard/ProductCard";
@@ -9,17 +8,20 @@ import Category from "../category/Category";
 
 const Products = () => {
     const [displayedProducts, setDisplayedProducts] = useState([]);
-    const [productsToShow, setProductsToShow] = useState(10);
+    const [productsToShow, setProductsToShow] = useState(30);
     const [selectedCategory, setSelectedCategory] = useState("");
-
 
     const dispatch = useDispatch();
     const { products, error, loading } = useSelector((state) => state.api);
 
-    let navigate = useNavigate();
-
     useEffect(() => {
-        dispatch(getProducts(selectedCategory));
+        if (selectedCategory == 'all') {
+            dispatch(getProducts());
+        } else {
+            dispatch(getProducts(selectedCategory));
+        }
+
+        dispatch(getProducts())
 
         return () => {
             dispatch(clearProducts());
@@ -49,7 +51,10 @@ const Products = () => {
 
                 {!loading && (
                     <div className="">
-                        <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                        <Category
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                        />
 
                         <div className="flex justify-center items-center flex-wrap ">
                             {displayedProducts.map((product) => (

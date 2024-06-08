@@ -9,7 +9,7 @@ const Navbar = () => {
                     <div>
                         <h2 className="text-[28px] font-[600]">Seçil Store</h2>
                     </div>
-                    <div>
+                    <div className="hidden min-[560px]:block">
                         <input
                             type="text"
                             className="min-w-[200px] w-[30vw] h-8 rounded-md"
