@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Seçil Store React.js Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+* live link of the project ( https://secil-store-task.vercel.app/ )
+  
+* React.js
+* Redux-toolkit
+* React-router
+* Axios
+* Tailwind
+  
 
 In the project directory, you can run:
 
